@@ -1,0 +1,86 @@
+html{
+	border: 0;
+	background-image: url(psychedelic.jpg);
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+a:link {color:#FFAB01 }
+a:visited {color:#FFAB01 }
+a:active {color:#FFAB01 }
+a:hiver {color:#FFAB01 }
+
+.bandeaux { 
+	border: solid 1px white;
+	border-radius: 20px;
+	vertical-align: middle;
+	background-color: rgba(0,0,0,0.8);
+	color: #FFAB01;
+}
+
+.bordereaux img {
+	display: inline;
+	width: 120px;
+	vertical-align: middle
+}
+
+.bandeaux p{
+	text-align: center;
+	font-size: 2em;
+	display: inline;
+	vertical-align: 300%;
+	text-align-last: center;
+	margin-left: 100px;
+}
+
+.navigation {
+	color:#FFAB01;
+	border: outset;
+	border-radius: 20px;
+	margin-top: 10px;
+	text-align-last: center;
+	background-color:black;
+	/*background-image: url(bandeau_arbre.jpg);
+	background-position: 0 -220px;
+	background-repeat: no-repeat;
+	background-size: cover;*/
+}
+
+.articletitre{
+	text-align: center;
+	border-bottom: solid 1px white;
+	background-color: black;
+	height: 25px;
+	line-height: 25px;
+}
+
+.article {
+	margin-top: 10px;
+	border: inset 2px white;
+	margin-left: center;
+	color: white;
+}
+
+.contenuarticle {
+	text-align:  center;
+	margin-top: 100px;
+}
+
+.displayimg {
+	display: block;
+	width:600px;
+	height:400px; 
+    margin: auto;
+    margin-top: 40px;
+}
+
+.formulaire {
+	border-radius: 10px;
+	border: solid 2px;
+	background-color: white;
+}
+
+.pititeicone {
+	width: 25px;
+	height: 25px;
+}
