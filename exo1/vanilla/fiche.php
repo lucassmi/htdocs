@@ -41,7 +41,7 @@
 
 				if (isset ($_GET['id'])) {
 					$id = $_GET['id'];
-					$maPers = getElementById($id, $dbcon);
+					$maPers = $tabpersonnes[$id];
 				} else {
 					$maPers = new Personne ('','','01-01-1900');
 					$id = -1;
@@ -49,13 +49,11 @@
 
 			?>
 
-			
-
 			<?php 
 
 			//if isset ($_POST['id']) && isset ($_POST['nom']) && isset ($_POST['prenom']) && isset ($_POST['ddn']))
 
-				$script='';
+			$script='';
 				$script .='<br/>';
 				$script .='<label>Nom</label>';
 				$script .='<input type="text" name="ttNom" placeholder="Nom" value="'.$maPers->getNom().'"/>';

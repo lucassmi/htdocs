@@ -50,7 +50,7 @@
 		</ol>
 	</nav>
 	<section>
-		<table border="1">
+<!--	<table border="1">
 			<tr>
 				<th>Nom</th>
 				<th>Prenom</th>
@@ -68,7 +68,8 @@
 			<tr>
 				<td class="lignebas" colspan="6">qsknhjdnpmqnhjdpqoshj</td>
 			</tr>
-
+			<br>
+-->
 		<?php 
 
 			/*$nom = array('nom', 'nom2', 'nom3');
@@ -97,8 +98,37 @@
 			include_once('data.php');
 
 
-			$tabpersonnes = array ($pers1, $pers2, $pers3);
-		?>
+
+
+
+			//$tabpersonnes = array ($pers1, $pers2, $pers3);
+			
+
+
+			/*$query = "SELECT pers_id, pers_nom FROM personne ";
+
+			if ($stmt = mysqli_prepare($dbcon, $query)) {
+
+			    /* Exécution de la requête 
+			    mysqli_stmt_execute($stmt);
+
+			    /* Association des variables de résultat 
+			    mysqli_stmt_bind_result($stmt, $pers_id, $pers_nom);
+
+			    /* Lecture des valeurs 
+			    while (mysqli_stmt_fetch($stmt)) {
+			        print("$pers_id $pers_nom ");
+			    }
+
+			    /* Fermeture de la commande 
+			    mysqli_stmt_close($stmt);
+			}
+
+			/* Fermeture de la connexion 
+			mysqli_close($dbcon);*/
+
+			?>
+
 
 		<table>
 			<tr>
@@ -108,59 +138,70 @@
 				<th>Age</th>
 				<th colspan="3">Actions</th>
 			</tr>
-			
 
 		<?php 
+
+			$SQLQuery= "SELECT pers_id, pers_nom, pers_prenom, pers_date_naissance FROM personne";
+			$SQLResult = mysqli_query($dbcon, $SQLQuery);
+
+
+
 			$script='';
-			foreach ($tabpersonnes as $indice => $pers){
+			//foreach ($tabpersonnes as $indice => $pers){
+
+			while ($SQLRow = mysqli_fetch_array($SQLResult)){
+				$pers = new Personne ($SQLRow['pers_id'], $SQLRow['pers_nom'], $SQLRow['pers_prenom'], $SQLRow['pers_date_naissance']);
+
 				$script .= '<tr>';
 				$script .= '<td>'.$pers -> getNom().'</td>';
 				$script .= '<td>'.$pers -> getPrenom().'</td>';
 				$script .= '<td>'.$pers -> getDdn().'</td>';
 				$script .= '<td>'.$pers -> getAge().'</td>';
-				$script .= '<td><a href="fiche.php?id='.$indice.'"><img src="user_edit.png" alt="Modifier utilisateur" class="pititeicone"/></a></td>';
+				$script .= '<td><a href="fiche.php?id='.$pers -> getId().'"><img src="user_edit.png" alt="Modifier utilisateur" class="pititeicone"/></a></td>';
 				$script .= '<td><img src="user_delete.png" alt="Supprimer utilisateur" class="pititeicone"/></td>';
 				$script .= '<td><img src="pm.png" alt="Message privée" class="pititeicone"/></td>';
 				$script .= '</tr>';
+			
+			$script .= '<tr><td class="lignebas" colspan="7"></td></tr>';
+			
+
 			}
-			$script .= '<tr><td class="lignebas" colspan="7">'.sizeof($tabpersonnes).'</td></tr>';
-			print ($script);
-
-			print($pers1);
+			print($script);
 		?>
+		
 
 		</table>
+		</br>
 
 
 
-		<?php 
-		$personnes = array (array ('nom' => 'alain', 'prenom' => 'alex', 'ddn' => '12/12/1212'),
+		<!--<?php 
+		/*$personnes = array (array ('nom' => 'alain', 'prenom' => 'alex', 'ddn' => '12/12/1212'),
 							array ('nom' => 'alain', 'prenom' => 'alex', 'ddn' => '12/12/1212'),
-							array ('nom' => 'alain', 'prenom' => 'alex', 'ddn' => '12/12/1212'),)
+							array ('nom' => 'alain', 'prenom' => 'alex', 'ddn' => '12/12/1212'),)*/
 		 ?>
-
-		</table>
+		-->
 
 		<!-- <?php 
 		 /* include_once ('Personne.php');
 			print($pers1 -> getNom().'<br/>'.$pers1 -> getPrenom()); */
 		?> -->
 
-		<table>
+		<!--<table>
 		 	<tr>
 		 		<th>Nom</th><th>Prenom</th><th>ddn</th>
 		 	</tr>
 		
-		<?php 
-		foreach ($personnes as $personne) {
+		?php 
+		/*foreach ($personnes as $personne) {
 			echo '<tr>';
 				foreach ($personne as $carac) {
 					echo '<td>'.$carac.'</td>';
 				}
 				echo '</tr>';
-		}
-		 ?>
-		</table>
+		}*/
+		 ?> 
+		</table> -->
 
 	</section>
 </body>

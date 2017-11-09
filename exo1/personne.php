@@ -3,24 +3,30 @@
 * 
 */
 class Personne{
-
+	private $_id;
 	private $_nom;
 	private $_prenom; 
 	private $_ddn;
 
-	function __construct($nom, $prenom, $ddn){
+	function __construct($id, $nom, $prenom, $ddn){
+		$this -> _id = $id;
 		$this -> _nom = $nom;
 		$this -> _prenom = $prenom;
-		$this -> _ddn = $ddn;
+		$this -> _ddn = $this -> transformerDate($ddn);
 	}
 
+	function getId () {
+		return $this -> _id;
+	}
 
 	function getNom () {
 		return $this -> _nom;
 	}
+
 	function getPrenom () {
 		return $this -> _prenom;
 	}
+
 	function getDdn () {
 		return $this -> _ddn;
 	}
@@ -63,6 +69,13 @@ class Personne{
 		return $annee;
 	}
 
+
+	function transformerDate($date) {
+		$ladate = new DateTime(date($date));
+		$lambda = $ladate -> format ('d-m-Y');
+
+		return $lambda;
+	}
 	/*function __tostring() {
 		return $this -> _nom;
 	}*/
